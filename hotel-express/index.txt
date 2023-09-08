@@ -1,0 +1,45 @@
+const express = require('express');
+const { Client } = require('pg');
+const app = express();
+const port = 3000;
+
+const dbConfig = {
+    user: 'postgres',
+    host: 'localhost',
+    database: 'db_hotel',
+    password: 'postgres',
+    port: 5432,
+};
+
+const client = new Client(dbConfig);
+
+// Anda dapat menambahkan rute Express.js di sini
+// app.get('/', (req, res) => {
+//     // res.send('Hello, World! Ghifary');
+// });
+
+async function fetchDataFromDatabase() {
+    try {
+        await client.connect(); // Membuka koneksi ke database
+        const query = 'SELECT * FROM "user"'; // Gunakan tanda kutip ganda untuk nama tabel "user"
+        const result = await client.query(query);
+        const users = result.rows;
+        console.log('Data Pengguna:');
+        console.log(users);
+
+        // Mengirim data sebagai respons JSON
+        app.get('/users', (req, res) => {
+            res.json(users);
+        });
+    } catch (error) {
+        console.error('Terjadi kesalahan:', error);
+    } finally {
+        await client.end(); // Menutup koneksi database
+    }
+}
+
+// Pemanggilan fungsi fetchDataFromDatabase setelah rute-rute didefinisikan
+app.listen(port, () => {
+    console.log(`Server berjalan di http://localhost:${port}`);
+    fetchDataFromDatabase(); // Memanggil fungsi setelah server siap
+});

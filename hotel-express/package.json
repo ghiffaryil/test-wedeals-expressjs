@@ -1,0 +1,17 @@
+{
+  "name": "hotel-express",
+  "version": "1.0.0",
+  "description": "Hotel Express",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Ghifary",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2",
+    "pg": "^8.11.3",
+    "pg-promise": "^11.5.4"
+  }
+}

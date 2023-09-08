@@ -1,0 +1,183 @@
+{
+	"info": {
+		"_postman_id": "43bd9818-960c-4ecc-81df-91d39f555307",
+		"name": "HOTEL",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "11757480",
+		"_collection_link": "https://cloudy-robot-540380.postman.co/workspace/Ghifary's-Team~055bb226-26d3-4447-888f-97a689db3168/collection/11757480-43bd9818-960c-4ecc-81df-91d39f555307?action=share&source=collection_link&creator=11757480"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Get All User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:3000/api/user"
+					},
+					"response": []
+				},
+				{
+					"name": "Cek Saldo User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:3000/api/user/check-saldo/U0001"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hotel",
+			"item": [
+				{
+					"name": "List Hotel",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:3000/api/hotel"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Hotel Kamar",
+			"item": [
+				{
+					"name": "Cek Harga Kamar",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:3000/api/hotel-kamar/HK0012/harga"
+					},
+					"response": []
+				},
+				{
+					"name": "List Kamar Hotel",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:3000/api/hotel-kamar"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Booking",
+			"item": [
+				{
+					"name": "List Booking",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:3000/api/booking/"
+					},
+					"response": []
+				},
+				{
+					"name": "Total Pendapatan Booking",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": "http://localhost:3000/api/booking/total-pendapatan-booking"
+					},
+					"response": []
+				},
+				{
+					"name": "Create Booking",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_id",
+									"value": "U0001",
+									"type": "text"
+								},
+								{
+									"key": "kamar_id",
+									"value": "HK0005",
+									"type": "text"
+								},
+								{
+									"key": "jumlah_hari_menginap",
+									"value": "3",
+									"type": "text"
+								}
+							]
+						},
+						"url": "http://localhost:3000/api/booking/create/"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
